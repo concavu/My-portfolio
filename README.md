@@ -1,59 +1,87 @@
-# MyPortfolio
+# Portfolio - Trần Hoàng Anh Vũ
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.3.
+![Angular](https://img.shields.io/badge/Angular-22.2.0-red?style=flat-square&logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.0.2-blue?style=flat-square&logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-## Development server
+Một portfolio cá nhân được xây dựng với Angular, thể hiện các dự án về hạ tầng mạng, đám mây riêng và AI.
 
-To start a local development server, run:
+## 🚀 Live Demo
+
+[Xem Portfolio](https://concavu.github.io/My-portfolio/)
+
+## ✨ Features
+
+- **Responsive Design**: Tối ưu cho mọi thiết bị
+- **Dark/Light Theme**: Chuyển đổi theme dễ dàng
+- **Project Showcase**: Hiển thị các dự án với ảnh và mô tả chi tiết
+- **Contact Section**: Thông tin liên hệ với chức năng copy nhanh
+- **Modern UI**: Giao diện hiện đại với animation mượt mà
+
+## 🛠️ Tech Stack
+
+- **Framework**: Angular 22.2.0
+- **Language**: TypeScript 6.0.2
+- **Styling**: CSS3 với CSS Variables
+- **Build Tool**: Angular CLI 22.2.3
+- **Testing**: Vitest 5.0.0
+
+## 📦 Installation
+
+```bash
+# Clone repository
+git clone https://github.com/concavu/My-portfolio.git
+
+# Navigate to project directory
+cd My-portfolio
+
+# Install dependencies
+npm install
+```
+
+## 🏃 Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Mở trình duyệt và truy cập `http://localhost:4200/`. Ứng dụng sẽ tự động reload khi bạn sửa code.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 🏗️ Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts sẽ được lưu trong thư mục `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🧪 Testing
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## 📄 Projects
 
-For end-to-end (e2e) testing, run:
+- **Cơ sở hạ tầng mạng doanh nghiệp**: Mô phỏng cấu trúc mạng với VLAN, OSPF, DMZ
+- **Nền tảng đám mây riêng**: Docker, Nextcloud, MariaDB, Redis, MinIO, Prometheus
+- **Giám sát xâm nhập AI**: YOLOv8, OpenCV, UDP/TCP, SMTP
 
-```bash
-ng e2e
-```
+## 👤 Author
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**Trần Hoàng Anh Vũ**
+- GitHub: [@concavu](https://github.com/concavu)
+- Email: tranhoanganhvu123@gmail.com
+- Phone: 0856 865 932
 
-## Additional Resources
+## 📝 License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+Built with ❤️ using Angular
