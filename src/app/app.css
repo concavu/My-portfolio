@@ -1,0 +1,113 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+main {
+  display: block;
+}
+
+.floating-contact {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 8;
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border: 1px solid rgba(83, 215, 245, 0.42);
+  border-radius: 999px;
+  background: #102331;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  color: #dff8ff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.floating-contact span:first-child {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.floating-contact span:last-child {
+  color: var(--accent);
+}
+
+.floating-contact:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: #173347;
+  box-shadow: 0 12px 32px rgba(83, 215, 245, 0.16);
+}
+
+.custom-cursor {
+  position: fixed;
+  z-index: 100;
+  display: grid;
+  width: 10px;
+  height: 10px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition:
+    width 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 120ms ease,
+    transform 160ms ease;
+}
+
+.custom-cursor span {
+  display: none;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.custom-cursor.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.custom-cursor.interactive {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--accent-violet);
+  background: rgba(167, 139, 250, 0.16);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.custom-cursor.interactive span {
+  display: block;
+  background: var(--accent-violet);
+}
+
+.custom-cursor.pressed {
+  transform: translate(-50%, -50%) scale(0.75);
+}
+
+@media (max-width: 460px) {
+  .floating-contact {
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    min-height: 42px;
+    padding: 0 13px;
+  }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor {
+    display: none;
+  }
+}

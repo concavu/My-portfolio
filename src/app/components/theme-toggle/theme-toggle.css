@@ -1,0 +1,73 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition:
+    transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease,
+    color 200ms ease;
+  outline: none;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px var(--accent-soft);
+  color: var(--accent);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.94);
+}
+
+.theme-icon {
+  width: 19px;
+  height: 19px;
+  transition: transform 300ms ease, stroke 200ms ease;
+}
+
+.moon-icon {
+  color: #53d7f5;
+  animation: rotateInMoon 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sun-icon {
+  color: #f59e0b;
+  animation: rotateInSun 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes rotateInMoon {
+  from {
+    opacity: 0;
+    transform: rotate(-60deg) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes rotateInSun {
+  from {
+    opacity: 0;
+    transform: rotate(60deg) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}

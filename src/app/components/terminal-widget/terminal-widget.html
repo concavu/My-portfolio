@@ -1,0 +1,33 @@
+<div class="terminal-box">
+  <div class="terminal-header">
+    <div class="dots-group">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+    <span class="terminal-title">vu-tran@infra-cli ~ zsh</span>
+    <span class="terminal-badge">INTERACTIVE CLI</span>
+  </div>
+  <div class="terminal-body">
+    @for (log of logs; track $index) {
+      <div [class]="log.type">{{ log.text }}</div>
+    }
+    <div class="terminal-input-line">
+      <span class="prompt-sym">$</span>
+      <input
+        type="text"
+        [(ngModel)]="inputCommand"
+        (keyup.enter)="runCommand()"
+        placeholder="Gõ lệnh hoặc click gợi ý bên dưới (ví dụ: whoami, ping, neofetch)..."
+        aria-label="Nhập lệnh terminal" />
+    </div>
+  </div>
+  <div class="terminal-chips">
+    <span class="chips-label">Lệnh nhanh:</span>
+    <div class="chips-list">
+      @for (cmd of quickCommands; track cmd) {
+        <button type="button" class="chip-btn" (click)="executeQuick(cmd)">{{ cmd }}</button>
+      }
+    </div>
+  </div>
+</div>

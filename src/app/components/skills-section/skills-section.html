@@ -1,0 +1,57 @@
+<section id="skills" class="skills-section">
+  <div class="container skills-container">
+    <div class="section-heading">
+      <p class="eyebrow">03 — Toolkit</p>
+      <h2>Công cụ & Công nghệ</h2>
+      <p class="section-intro">Những nền tảng và công nghệ mình đang thực hành qua các dự án thực tế.</p>
+    </div>
+    <div class="skills-grid">
+      @for (category of skillCategories; track category.key; let i = $index) {
+        <div class="skill-category">
+          <div class="category-header">
+            <span class="category-icon" aria-hidden="true">
+              @switch (category.key) {
+                @case ('networking') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+                    <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                    <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                    <path d="M5 8v5a2 2 0 0 0 2 2h12"></path>
+                    <path d="M5 15h14"></path>
+                  </svg>
+                }
+                @case ('cloud') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                  </svg>
+                }
+                @case ('security') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                }
+                @default {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                }
+              }
+            </span>
+            <div class="category-title-group">
+              <span class="category-code">0{{ i + 1 }} // INFRA</span>
+              <h3>{{ category.title }}</h3>
+            </div>
+          </div>
+
+          <div class="skill-badges">
+            @for (skill of category.skills; track skill) {
+              <span class="skill-badge">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

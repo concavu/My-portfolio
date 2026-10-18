@@ -1,0 +1,54 @@
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-content">
+      <div class="section-heading">
+        <p class="eyebrow">01 — Giới thiệu</p>
+        <h2>Mình quan tâm đến cách mọi thứ kết nối.</h2>
+      </div>
+      <div class="about-copy">
+        @for (paragraph of bioParagraphs; track paragraph) {
+          <p>{{ paragraph }}</p>
+        }
+        <div class="about-details">
+          <div><span>Địa điểm</span><strong>{{ locationInfo }}</strong></div>
+          <div><span>Quan tâm</span><strong>{{ interests }}</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume" class="resume-section">
+  <div class="container">
+    <div class="resume-heading">
+      <div>
+        <p class="eyebrow">02 — Học vấn & định hướng</p>
+        <h2>Đang xây nền tảng vững chắc.</h2>
+      </div>
+      <a href="#projects" class="resume-link">Xem các dự án <span aria-hidden="true">↘</span></a>
+    </div>
+
+    <div class="resume-grid">
+      <article class="education-card">
+        <div class="education-topline">
+          <span class="education-dot" aria-hidden="true"></span>
+          <span>{{ education.period }}</span>
+          <span class="current-badge">ĐANG THEO HỌC</span>
+        </div>
+        <h3>{{ education.program }}</h3>
+        <p class="institution">{{ education.institution }}</p>
+        <p class="location">{{ education.location }}</p>
+      </article>
+
+      <aside class="focus-card">
+        <p class="focus-label">HƯỚNG TÌM HIỂU</p>
+        <ul>
+          @for (area of focusAreas; track area) {
+            <li><span aria-hidden="true">↗</span>{{ area }}</li>
+          }
+        </ul>
+        <p class="focus-note">Các nội dung này được phản ánh qua những dự án học tập và thực hành bên dưới.</p>
+      </aside>
+    </div>
+  </div>
+</section>

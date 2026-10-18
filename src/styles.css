@@ -1,1 +1,211 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  --page-bg: #080d16;
+  --surface: #0e1623;
+  --surface-raised: #111c2b;
+  --text-primary: #e5edf7;
+  --text-secondary: #91a0b3;
+  --text-subtle: #64748b;
+  --line: rgba(148, 163, 184, 0.15);
+  --accent: #53d7f5;
+  --accent-soft: rgba(83, 215, 245, 0.12);
+  --accent-violet: #a78bfa;
+  --accent-rose: #f28ba8;
+  --header-bg: rgba(8, 13, 22, 0.85);
+  --font-sans: 'Space Grotesk', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+[data-theme="light"],
+body.light-theme {
+  color-scheme: light;
+  --page-bg: #f5f8fc;
+  --surface: #ffffff;
+  --surface-raised: #edf2f8;
+  --text-primary: #0b1526;
+  --text-secondary: #33475f;
+  --text-subtle: #64748b;
+  --line: rgba(100, 116, 139, 0.2);
+  --accent: #0284c7;
+  --accent-soft: rgba(2, 132, 199, 0.12);
+  --accent-violet: #6d28d9;
+  --accent-rose: #e11d48;
+  --header-bg: rgba(245, 248, 252, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 82% 4%, rgba(24, 79, 105, 0.2), transparent 30rem),
+    radial-gradient(ellipse at 4% 42%, rgba(100, 72, 160, 0.09), transparent 28rem),
+    radial-gradient(ellipse at 94% 68%, rgba(165, 80, 112, 0.07), transparent 25rem),
+    var(--page-bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+body.light-theme {
+  background:
+    radial-gradient(ellipse at 82% 4%, rgba(2, 132, 199, 0.08), transparent 30rem),
+    radial-gradient(ellipse at 4% 42%, rgba(109, 40, 217, 0.05), transparent 28rem),
+    radial-gradient(ellipse at 94% 68%, rgba(225, 29, 72, 0.03), transparent 25rem),
+    var(--page-bg);
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.13) 0.7px, transparent 0.7px);
+  background-size: 28px 28px;
+  content: '';
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  pointer-events: none;
+}
+
+body.light-theme::before {
+  background-image: radial-gradient(rgba(100, 116, 139, 0.18) 0.8px, transparent 0.8px);
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+app-hero-section .hero-visual::before {
+  position: absolute;
+  z-index: -1;
+  inset: 12% -15%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(83, 215, 245, 0.16), rgba(167, 139, 250, 0.08) 38%, transparent 72%);
+  content: '';
+  filter: blur(16px);
+  animation: haloPulse 5s ease-in-out infinite alternate;
+}
+
+app-hero-section .portrait-frame {
+  transform: rotate(2deg);
+  animation: portraitFloat 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  transition: border-color 240ms ease, box-shadow 240ms ease, transform 300ms ease;
+}
+
+app-hero-section .hero-visual:hover .portrait-frame {
+  animation: none;
+  border-color: rgba(167, 139, 250, 0.58);
+  box-shadow: 0 30px 80px rgba(71, 54, 126, 0.24), 0 0 35px rgba(83, 215, 245, 0.1);
+  transform: rotate(0deg) scale(1.025);
+}
+
+app-hero-section .hero-avatar {
+  transition: filter 300ms ease, transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+app-hero-section .hero-visual:hover .hero-avatar {
+  filter: saturate(1.1) contrast(1.025);
+  transform: scale(1.035);
+}
+
+@keyframes portraitFloat {
+  0%, 100% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(-10px) rotate(0deg); }
+}
+
+@keyframes haloPulse {
+  from { opacity: 0.55; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1.06); }
+}
+
+::selection {
+  background: rgba(83, 215, 245, 0.28);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (pointer: fine) and (hover: hover) {
+  body,
+  body * {
+    cursor: none !important;
+  }
+}
+
+/* Light Theme Component Overrides */
+[data-theme="light"] .education-card,
+body.light-theme .education-card,
+[data-theme="light"] .focus-card,
+body.light-theme .focus-card,
+[data-theme="light"] .skill-category,
+body.light-theme .skill-category,
+[data-theme="light"] .project-card,
+body.light-theme .project-card,
+[data-theme="light"] .contact-card,
+body.light-theme .contact-card {
+  background: #ffffff;
+  border-color: var(--line);
+  box-shadow: 0 4px 20px rgba(100, 116, 139, 0.08);
+}
+
+[data-theme="light"] .floating-contact,
+body.light-theme .floating-contact {
+  background: #ffffff;
+  color: var(--text-primary);
+  border-color: var(--line);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .btn.secondary,
+body.light-theme .btn.secondary,
+[data-theme="light"] .btn.outline-btn,
+body.light-theme .btn.outline-btn {
+  background: #ffffff;
+  border-color: var(--line);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .skill-badge,
+body.light-theme .skill-badge {
+  background: var(--surface-raised);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .about-details strong,
+body.light-theme .about-details strong,
+[data-theme="light"] .focus-card li,
+body.light-theme .focus-card li {
+  color: var(--text-primary);
+}

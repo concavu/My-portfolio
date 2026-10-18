@@ -1,0 +1,69 @@
+<section id="contact" class="contact-section">
+  <div class="container">
+    <p class="eyebrow">05 — Say hello</p>
+    <h2>Cùng trao đổi về một ý tưởng hay?</h2>
+    <p class="contact-intro">Mình luôn sẵn sàng kết nối, học hỏi và cùng xây dựng những điều hữu ích.</p>
+    
+    <div class="contact-cards">
+      <!-- Email Card -->
+      <div class="contact-card">
+        <div class="card-header-line">
+          <span class="contact-label">EMAIL</span>
+          <button
+            type="button"
+            class="copy-btn"
+            (click)="copyText(email, 'email')"
+            [title]="copiedType === 'email' ? 'Đã sao chép!' : 'Sao chép email'">
+            @if (copiedType === 'email') {
+              <span class="copy-success">✓ Đã sao chép!</span>
+            } @else {
+              <span>📋 Sao chép</span>
+            }
+          </button>
+        </div>
+        <div class="contact-value-wrapper">
+          <a [href]="'mailto:' + email" class="contact-value highlight-link">{{ email }}</a>
+        </div>
+        <a [href]="'mailto:' + email" class="contact-action">Mở ứng dụng email <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <!-- GitHub Card -->
+      <div class="contact-card">
+        <div class="card-header-line">
+          <span class="contact-label">GITHUB</span>
+          <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="external-pill">concavu ↗</a>
+        </div>
+        <div class="contact-value-wrapper">
+          <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="contact-value highlight-link">github.com/concavu ↗</a>
+        </div>
+        <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="contact-action">Xem hồ sơ GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <!-- Phone Card -->
+      <div class="contact-card">
+        <div class="card-header-line">
+          <span class="contact-label">PHONE</span>
+          <button
+            type="button"
+            class="copy-btn"
+            (click)="copyText(phone, 'phone')"
+            [title]="copiedType === 'phone' ? 'Đã sao chép!' : 'Sao chép số điện thoại'">
+            @if (copiedType === 'phone') {
+              <span class="copy-success">✓ Đã sao chép!</span>
+            } @else {
+              <span>📋 Sao chép</span>
+            }
+          </button>
+        </div>
+        <div class="contact-value-wrapper">
+          <a [href]="phoneHref" class="contact-value highlight-link">{{ phone }}</a>
+        </div>
+        <a [href]="phoneHref" class="contact-action">Gọi điện thoại <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; {{ currentYear }} {{ userName }} <span>·</span> Built with Angular & Infrastructure Passion.</p>
+    </footer>
+  </div>
+</section>
