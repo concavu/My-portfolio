@@ -3,6 +3,10 @@ name: Build and Deploy
 on:
   push:
     branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -14,20 +18,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '26'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
-
       - name: Build
-        run: ng build --base-href=/My-portfolio/ --configuration production
+        run: npx ng build --base-href=/My-portfolio/ --configuration production
 
-      - name: List build output
-        run: ls -la dist/
+      - name: Prepare SPA routing for GitHub Pages
+        run: |
+          cp dist/my-portfolio/browser/index.html dist/my-portfolio/browser/404.html
+          touch dist/my-portfolio/browser/.nojekyll
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
