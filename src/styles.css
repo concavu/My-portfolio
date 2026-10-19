@@ -39,11 +39,6 @@ body.light-theme {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 88px;
-}
-
 body {
   min-width: 320px;
   margin: 0;
@@ -208,4 +203,16 @@ body.light-theme .about-details strong,
 [data-theme="light"] .focus-card li,
 body.light-theme .focus-card li {
   color: var(--text-primary);
+}
+/* Tăng tốc phần cứng cho toàn bộ các phần tử tương tác */
+.project-card, .skill-category, .terminal-box, .btn {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Tối ưu hiệu ứng cuộn mượt mà toàn trang */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Tránh bị che thanh header khi nhảy anchor link */
 }
