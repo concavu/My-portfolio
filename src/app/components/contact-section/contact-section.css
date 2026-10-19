@@ -76,21 +76,20 @@ h2 {
 }
 
 .copy-btn {
-  padding: 3px 8px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: transparent;
+  border: 1px solid #4b5563;
+  color: #e5e7eb;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #9eb1c7;
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
   cursor: pointer;
-  transition: all 160ms ease;
+  transition: all 0.2s;
 }
 
 .copy-btn:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
 }
 
 .copy-success {
@@ -110,7 +109,11 @@ h2 {
 }
 
 .contact-value-wrapper {
-  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .contact-value {

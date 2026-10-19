@@ -17,9 +17,11 @@ export class ContactSection {
   currentYear = new Date().getFullYear();
   userName = 'Trần Hoàng Anh Vũ';
 
-  copiedType: 'email' | 'phone' | null = null;
+  // 1. Cho phép copiedType nhận thêm giá trị 'github'
+  copiedType: 'email' | 'phone' | 'github' | null = null;
 
-  async copyText(text: string, type: 'email' | 'phone'): Promise<void> {
+  // 2. Mở rộng type cho tham số thứ hai của hàm copyText
+  async copyText(text: string, type: 'email' | 'phone' | 'github'): Promise<void> {
     try {
       await navigator.clipboard.writeText(text);
       this.copiedType = type;

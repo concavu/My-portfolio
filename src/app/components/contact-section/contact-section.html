@@ -9,10 +9,11 @@
       <div class="contact-card">
         <div class="card-header-line">
           <span class="contact-label">EMAIL</span>
+          <!-- Thêm $event.stopPropagation() để không bị dính sự kiện sang chỗ khác -->
           <button
             type="button"
             class="copy-btn"
-            (click)="copyText(email, 'email')"
+            (click)="copyText(email, 'email'); $event.stopPropagation()"
             [title]="copiedType === 'email' ? 'Đã sao chép!' : 'Sao chép email'">
             @if (copiedType === 'email') {
               <span class="copy-success">✓ Đã sao chép!</span>
@@ -22,7 +23,7 @@
           </button>
         </div>
         <div class="contact-value-wrapper">
-          <a [href]="'mailto:' + email" class="contact-value highlight-link">{{ email }}</a>
+        <a [href]="'https://mail.google.com/mail/?view=cm&fs=1&to=' + email" target="_blank" rel="noopener noreferrer" class="contact-value highlight-link">{{ email }}</a>
         </div>
         <a [href]="'mailto:' + email" class="contact-action">Mở ứng dụng email <span aria-hidden="true">↗</span></a>
       </div>
@@ -32,6 +33,17 @@
         <div class="card-header-line">
           <span class="contact-label">GITHUB</span>
           <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="external-pill">concavu ↗</a>
+          <button
+            type="button"
+            class="copy-btn"
+            (click)="copyText(githubUrl, 'github'); $event.stopPropagation()"
+            [title]="copiedType === 'github' ? 'Đã sao chép!' : 'Sao chép đường dẫn GitHub'">
+            @if (copiedType === 'github') {
+              <span class="copy-success">✓ Đã sao chép!</span>
+            } @else {
+              <span>📋 Sao chép</span>
+            }
+          </button>
         </div>
         <div class="contact-value-wrapper">
           <a [href]="githubUrl" target="_blank" rel="noopener noreferrer" class="contact-value highlight-link">github.com/concavu ↗</a>
@@ -46,7 +58,7 @@
           <button
             type="button"
             class="copy-btn"
-            (click)="copyText(phone, 'phone')"
+            (click)="copyText(phone, 'phone'); $event.stopPropagation()"
             [title]="copiedType === 'phone' ? 'Đã sao chép!' : 'Sao chép số điện thoại'">
             @if (copiedType === 'phone') {
               <span class="copy-success">✓ Đã sao chép!</span>
